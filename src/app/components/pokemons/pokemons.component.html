@@ -1,5 +1,32 @@
-<ul *ngFor="let pokemon of pokemons">
-  <li>
-    <app-pokemon [pokemon]="pokemon" ></app-pokemon>
-  </li>
-</ul>
+<div class="container">
+  <form #form="ngForm">
+    <div class="field has-addons">
+      <div class="control has-icons-left">
+        <input
+          type="text"
+          name="pokemonSearch"
+          placeholder="Nom du Pokemon"
+          [(ngModel)]="formSearchPokemon.nom"
+          class="input is-small"
+          [class.is-danger]="form.invalid"
+        />
+        <span class="icon is-small is-left">
+        </span>
+        <div *ngIf="form.invalid" class="tag is-danger is-light">
+          Le champ de saisie ne peut contenir que des lettres.
+        </div>
+      </div>
+      <a (click)="search(formSearchPokemon.nom)" class="button is-primary is-small" [class.is-danger]="form.invalid">Rechercher</a>
+      <div class="control">
+        <a (click)="annuler()" class="button is-danger is-small">Annuler</a> 
+      </div>
+    </div>
+  </form>
+  <ul *ngFor="let pokemon of pokemons">
+    <li>
+      <app-pokemon [pokemon]="pokemon" ></app-pokemon>
+    </li>
+  </ul>
+</div>
+
+

@@ -1,0 +1,8 @@
+<ul class="menu-list">
+  <div *ngIf="pokemon">
+    <img src="{{ pokemon.sprites.front_default }}" alt="" />
+    <li>{{ pokemon.name }} </li>
+    <li> Taille : {{ pokemon.height }}</li>
+    <li> Poids : {{ pokemon.weight }}</li>
+  </div>
+</ul>
